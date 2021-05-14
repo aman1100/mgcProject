@@ -1,0 +1,105 @@
+{% extends 'userregister/base.html' %}
+{% block title %}User Register{% endblock title %}
+
+{% block body %}
+<div class='container mt-4'>
+
+    <form class="row g-3" action="/" method="post"> {% csrf_token %}
+    <div class="col-12"><h2>User Registration Form</h2></div>
+    <div class="col-12">
+    <label for="inputAddress2" class="form-label">Name of Applicant</label>
+    <input type="text" class="form-control" required name="nameOfApplicant" id="nameOfApplicant" placeholder="Enter your name:">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Father name</label>
+    <input type="text" class="form-control" required name="fatherName" id="fatherName">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Mother name</label>
+    <input type="text" class="form-control" required name="motherName" id="motherName">
+  </div>
+  <div class="col-md-6">
+    <label for="inputAddress" class="form-label">Address</label>
+    <input type="text" class="form-control" required name="address" id="address" placeholder="1234 Main St">
+  </div>
+  <div class="col-md-6">
+    <label for="inputAddress2" class="form-label">Zip</label>
+    <input type="number" class="form-control" required name="zip" id="zip" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">Aadhar No.</label>
+    <input type="number" class="form-control" required name="aadhar" id="aadhar" placeholder="Enter your aadhar card no:">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">Pan No.</label>
+    <input type="text" class="form-control" required name="pan" id="pan" placeholder="Enter your Pan card no:">
+  </div>
+  <div class="col-md-4">
+    <label for="inputAddress2" class="form-label">Office Name</label>
+    <input type="text" class="form-control" required name="officeName" id="officeName" placeholder="Enter your Office name">
+  </div>
+  <div class="col-md-4">
+    <label for="inputAddress2" class="form-label">Office Addres</label>
+    <input type="text" class="form-control" required name="officeAddress" id="officeAddress" placeholder="Office Address">
+  </div>
+  <div class="col-md-4">
+    <label for="inputAddress2" class="form-label">Designation</label>
+    <input type="text" class="form-control" required name="designation" id="designation" placeholder="Designation">
+  </div>
+  <div class="col-md-6">
+    <label for="inputAddress2" class="form-label">Name of Boss</label>
+    <input type="text" class="form-control" required name="bossName" id="bossName" placeholder="Enter boss name:">
+  </div>
+  <div class="col-md-6">
+    <label for="inputAddress2" class="form-label">Total Exp</label>
+    <input type="number" class="form-control" required name="experience" id="experience" placeholder="Exp in Years:">
+  </div>
+  <div class="col-md-12">
+  <input class="form-check-input" type="checkbox" value="" name="checkbox" id="checkbox">
+  <label class="form-check-label" for="flexCheckDefault">
+    Reference
+  </label>
+    </div>
+    <div id="delivery" style="display:none;">
+        <div class="col-12">
+        <label for="inputAddress2" class="form-label">Name</label>
+        <input type="text" class="form-control" name="refName" id="refName" placeholder="Reference Name">
+        </div>
+        <div class="col-12">
+        <label for="inputAddress2" class="form-label">Contact Number</label>
+        <input type="number" class="form-control" name="refcontactnum" id="refcontactnum" placeholder="Contact Number">
+        </div>
+        <div class="col-12">
+        <label for="inputAddress2" class="form-label">Relationship</label>
+        <input type="text" class="form-control" name="refrelationship" id="refrelationship" placeholder="Relationship">
+        </div>
+        <div class="col-md-12">
+        <label for="inputAddress2" class="form-label">Address</label>
+        <input type="text" class="form-control" name="refaddress" id="refaddress" placeholder="Address">
+        </div>
+
+    </div>
+  
+
+  <div class="col-12">
+    <button type="submit" id="submitForm" class="btn btn-primary">Register</button>
+  </div>
+</form>
+</div>
+{% endblock body %}
+{% block script %}
+var checkbox = document.getElementById('checkbox');
+var delivery_div = document.getElementById('delivery');
+checkbox.onclick = function() {
+   if(this.checked) {
+     delivery_div.style['display'] = 'block';
+   } else {
+     delivery_div.style['display'] = 'none';
+   }
+};
+$("#submitForm").click(function() {
+      alert("The Form has been Submitted.");
+   });
+
+{% endblock script %}
